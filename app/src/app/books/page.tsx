@@ -1,0 +1,56 @@
+import { supabase } from '@/lib/supabase';
+import { Book } from '@/lib/supabase';
+import BooksGrid from '@/components/BooksGrid';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Catalogue — Sonic Books',
+  description: 'Parcourez notre catalogue complet de livres scolaires PDF.',
+};
+
+export const revalidate = 60;
+
+async function getBooks(search?: string, category?: string): Promise<Book[]> {
+  let query = supabase.from('books').select('*').order('created_at', { ascending: false });
+  if (search) query = query.ilike('title', `%${search}%`);
+  if (category) query = query.eq('category', category);
+  const { data } = await query;
+  return data || [];
+}
+
+async function getCategories(): Promise<string[]> {
+  const { data } = await supabase.from('books').select('category');
+  if (!data) return [];
+  return [...new Set(data.map((b) => b.category))];
+}
+
+interface BooksPageProps {
+  searchParams: Promise<{ q?: string; category?: string }>;
+}
+
+export default async function BooksPage({ searchParams }: BooksPageProps) {
+  const params = await searchParams;
+  const [books, categories] = await Promise.all([
+    getBooks(params.q, params.category),
+    getCategories(),
+  ]);
+
+  return (
+    <div className="min-h-screen pt-24 pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="mb-10">
+          <p className="text-purple-400 text-sm font-medium mb-1">📚 Catalogue</p>
+          <h1 className="text-4xl font-bold text-white">
+            {params.category ? params.category : params.q ? `Résultats pour "${params.q}"` : 'Tous les livres'}
+          </h1>
+          <p className="text-gray-400 mt-2">
+            {books.length} livre{books.length > 1 ? 's' : ''} trouvé{books.length > 1 ? 's' : ''}
+          </p>
+        </div>
+
+        <BooksGrid books={books} categories={categories} currentCategory={params.category} currentSearch={params.q} />
+      </div>
+    </div>
+  );
+}
