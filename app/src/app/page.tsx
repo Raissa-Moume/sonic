@@ -49,7 +49,7 @@ export default async function HomePage() {
     {
       icon: BookOpen,
       title: 'Large catalogue',
-      desc: 'Des centaines de livres scolaires pour tous les niveaux.',
+      desc: 'Des livres passionnants pour apprendre, découvrir et entreprendre.',
       color: '#7c3aed',
     },
   ];

@@ -31,7 +31,7 @@ ${itemsList}
 
 Votre commande est en cours de vérification. Vous recevrez vos livres PDF très bientôt ! 📚
 
-_Sonic Books — La librairie scolaire numérique du Cameroun_ 🇨🇲`;
+_Sonic Books — Votre Librairie Numérique_ 🇨🇲`;
 }
 
 export function buildBookDeliveryMessage(
@@ -56,7 +56,7 @@ ${bookLinks}
 Merci de votre confiance ! 🙏
 _Bonne lecture et bon succès dans vos études !_ ✨
 
-_Sonic Books — La librairie scolaire numérique du Cameroun_ 🇨🇲`;
+_Sonic Books — Votre Librairie Numérique_ 🇨🇲`;
 }
 
 export function buildAdminNotificationMessage(

@@ -12,13 +12,13 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: 'Sonic Books — La Librairie Scolaire Numérique',
+  title: 'Sonic Books — Votre Librairie Numérique',
   description:
-    'Achetez vos livres scolaires en PDF. Livraison instantanée sur WhatsApp. La librairie numérique #1 du Cameroun.',
-  keywords: 'livres scolaires, PDF, Cameroun, éducation, livres numériques',
+    'Achetez vos livres en PDF sur l\'agriculture, l\'élevage, le développement personnel et bien plus. Livraison instantanée sur WhatsApp.',
+  keywords: 'livres, PDF, Cameroun, agriculture, élevage, développement personnel, livres numériques',
   openGraph: {
     title: 'Sonic Books',
-    description: 'La Librairie Scolaire Numérique du Cameroun',
+    description: 'Votre Librairie Numérique',
     type: 'website',
   },
 };

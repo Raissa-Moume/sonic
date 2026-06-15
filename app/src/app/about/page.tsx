@@ -12,7 +12,7 @@ export default function AboutPage() {
     {
       number: '01',
       title: 'Parcourez le catalogue',
-      description: 'Explorez notre vaste sélection de livres scolaires PDF pour tous les niveaux et toutes les matières.',
+      description: 'Explorez notre sélection de livres sur l\'agriculture, le développement personnel, la psychologie et bien plus.',
       icon: BookOpen,
     },
     {
@@ -55,8 +55,8 @@ export default function AboutPage() {
           <span className="gradient-text">Sonic Books</span>
         </h1>
         <p className="text-gray-400 text-xl leading-relaxed max-w-3xl mx-auto">
-          Nous sommes une librairie scolaire 100% numérique née au Cameroun, avec une mission simple :
-          <strong className="text-white"> rendre l'éducation accessible</strong> à chaque étudiant grâce à la technologie.
+          Nous sommes une librairie 100% numérique née au Cameroun, avec une mission simple :
+          <strong className="text-white"> rendre l'apprentissage et le savoir accessibles</strong> à chacun grâce à la technologie.
         </p>
       </section>
 

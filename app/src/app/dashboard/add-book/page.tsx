@@ -32,8 +32,8 @@ export default function AddBookPage() {
   });
 
   const categories = [
-    'Mathématiques', 'Français', 'Sciences', 'Histoire-Géographie',
-    'Anglais', 'Physique-Chimie', 'SVT', 'Philosophie', 'Économie', 'Informatique'
+    'Agriculture', 'Élevage', 'Psychologie & Cerveau', 'Développement Personnel',
+    'Business & Finance', 'Santé & Bien-être', 'Technologie', 'Scolaire', 'Romans', 'Divers'
   ];
 
   async function uploadFile(file: File, resourceType: string) {

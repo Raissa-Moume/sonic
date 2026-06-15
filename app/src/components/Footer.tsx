@@ -16,7 +16,7 @@ export default function Footer() {
               <span className="text-xl font-bold gradient-text">Sonic Books</span>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
-              La librairie scolaire numérique du Cameroun. Achetez vos livres PDF en toute sécurité et recevez-les instantanément sur WhatsApp.
+              Votre librairie numérique préférée. Achetez vos livres PDF en toute sécurité et recevez-les instantanément sur WhatsApp.
             </p>
             <div className="flex items-center gap-2 mt-6">
               <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>

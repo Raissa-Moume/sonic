@@ -38,7 +38,7 @@ export default function HeroSection({ categories }: HeroSectionProps) {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 mb-8">
           <Sparkles size={14} className="text-amber-400" />
-          <span className="text-xs font-medium text-gray-300">La librairie scolaire #1 du Cameroun 🇨🇲</span>
+          <span className="text-xs font-medium text-gray-300">Votre librairie numérique préférée 🇨🇲</span>
         </div>
 
         {/* Title */}
@@ -52,8 +52,8 @@ export default function HeroSection({ categories }: HeroSectionProps) {
         </h1>
 
         <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
-          Commandez vos livres scolaires, nous vérifions votre paiement et vous envoyons les PDF
-          directement sur WhatsApp. Rapide, sécurisé, africain.
+          Découvrez des ouvrages fascinants sur l'agriculture, l'élevage, le fonctionnement du cerveau et plus encore.
+          Paiement vérifié manuellement et livraison directe des PDF sur votre WhatsApp.
         </p>
 
         {/* Search bar */}
