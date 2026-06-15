@@ -48,7 +48,7 @@ export default function BookCard({ book }: BookCardProps) {
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <Link
             href={`/books/${book.id}`}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white glass"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-emerald-950 glass"
           >
             <Eye size={14} />
             Voir détails
@@ -58,8 +58,8 @@ export default function BookCard({ book }: BookCardProps) {
 
       {/* Content */}
       <div className="p-4">
-        <p className="text-xs text-gray-500 mb-1 truncate">{book.author}</p>
-        <h3 className="font-semibold text-white line-clamp-2 text-sm leading-tight mb-3">
+        <p className="text-xs text-emerald-600 mb-1 truncate">{book.author}</p>
+        <h3 className="font-semibold text-emerald-950 line-clamp-2 text-sm leading-tight mb-3">
           {book.title}
         </h3>
 
@@ -69,13 +69,13 @@ export default function BookCard({ book }: BookCardProps) {
             <span className="text-xl font-bold gradient-text">
               {book.price.toLocaleString()}
             </span>
-            <span className="text-xs text-gray-500 ml-1">FCFA</span>
+            <span className="text-xs text-emerald-600 ml-1">FCFA</span>
           </div>
           <button
             onClick={handleAdd}
             className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-300 ${
               added
-                ? 'bg-green-500/20 text-green-400 border border-green-500/30'
+                ? 'bg-green-500/20 text-emerald-600 border border-green-500/30'
                 : 'btn-primary'
             }`}
           >
@@ -86,7 +86,7 @@ export default function BookCard({ book }: BookCardProps) {
 
         {/* Stock indicator */}
         {book.stock <= 5 && book.stock > 0 && (
-          <p className="text-xs text-amber-400 mt-2">
+          <p className="text-xs text-orange-500 mt-2">
             ⚡ Plus que {book.stock} disponible{book.stock > 1 ? 's' : ''}
           </p>
         )}

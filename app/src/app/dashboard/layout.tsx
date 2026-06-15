@@ -41,17 +41,17 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <div className="flex items-center gap-3 mb-8">
             <div className="w-10 h-10 rounded-xl flex items-center justify-center"
               style={{ background: 'linear-gradient(135deg, #7c3aed, #06b6d4)' }}>
-              <Lock size={18} className="text-white" />
+              <Lock size={18} className="text-emerald-950" />
             </div>
             <div>
-              <h1 className="font-bold text-white">Dashboard Admin</h1>
-              <p className="text-xs text-gray-400">Sonic Books</p>
+              <h1 className="font-bold text-emerald-950">Dashboard Admin</h1>
+              <p className="text-xs text-emerald-800">Sonic Books</p>
             </div>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
-              <label className="block text-sm text-gray-400 mb-1.5">Mot de passe admin</label>
+              <label className="block text-sm text-emerald-800 mb-1.5">Mot de passe admin</label>
               <input
                 type="password"
                 required
@@ -80,11 +80,11 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-xl flex items-center justify-center"
               style={{ background: 'linear-gradient(135deg, #7c3aed, #06b6d4)' }}>
-              <BookOpen size={14} className="text-white" />
+              <BookOpen size={14} className="text-emerald-950" />
             </div>
             <div>
-              <p className="font-bold text-white text-sm">Sonic Books</p>
-              <p className="text-xs text-gray-400">Administration</p>
+              <p className="font-bold text-emerald-950 text-sm">Sonic Books</p>
+              <p className="text-xs text-emerald-800">Administration</p>
             </div>
           </div>
         </div>
@@ -99,7 +99,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             <a
               key={item.href}
               href={item.href}
-              className="block px-3 py-2.5 rounded-xl text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-all mb-1"
+              className="block px-3 py-2.5 rounded-xl text-sm text-emerald-800 hover:text-emerald-950 hover:bg-white/5 transition-all mb-1"
             >
               {item.label}
             </a>
@@ -112,7 +112,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               sessionStorage.removeItem('admin_key');
               setAuthenticated(false);
             }}
-            className="w-full text-left px-3 py-2 text-sm text-gray-500 hover:text-red-400 transition-colors rounded-xl hover:bg-red-500/5"
+            className="w-full text-left px-3 py-2 text-sm text-emerald-600 hover:text-red-400 transition-colors rounded-xl hover:bg-red-500/5"
           >
             🚪 Déconnexion
           </button>

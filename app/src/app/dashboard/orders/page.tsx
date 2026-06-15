@@ -74,8 +74,8 @@ export default function OrdersPage() {
     <div className="p-6 md:p-8">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-2xl font-bold text-white">Commandes</h1>
-          <p className="text-gray-400 text-sm mt-1">{orders.length} commande{orders.length > 1 ? 's' : ''} total</p>
+          <h1 className="text-2xl font-bold text-emerald-950">Commandes</h1>
+          <p className="text-emerald-800 text-sm mt-1">{orders.length} commande{orders.length > 1 ? 's' : ''} total</p>
         </div>
         <button
           onClick={loadOrders}
@@ -93,7 +93,7 @@ export default function OrdersPage() {
             key={f}
             onClick={() => setFilter(f)}
             className={`badge py-1.5 px-3 text-xs cursor-pointer transition-all ${
-              filter === f ? 'badge-purple' : 'text-gray-500 border border-gray-700 hover:border-purple-500/50'
+              filter === f ? 'badge-purple' : 'text-emerald-600 border border-gray-700 hover:border-purple-500/50'
             }`}
           >
             {f === 'all' ? 'Toutes' : f === 'pending' ? 'En attente' : f === 'verified' ? 'Vérifiées' : f === 'sent' ? 'Envoyées' : 'Annulées'}
@@ -115,7 +115,7 @@ export default function OrdersPage() {
       ) : filtered.length === 0 ? (
         <div className="text-center py-20">
           <p className="text-4xl mb-3">📦</p>
-          <p className="text-gray-400">Aucune commande dans cette catégorie</p>
+          <p className="text-emerald-800">Aucune commande dans cette catégorie</p>
         </div>
       ) : (
         <div className="space-y-4">
@@ -125,10 +125,10 @@ export default function OrdersPage() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-3 mb-2">
                     <StatusBadge status={order.status} />
-                    <span className="text-xs text-gray-500">
+                    <span className="text-xs text-emerald-600">
                       #{order.id.slice(0, 8).toUpperCase()}
                     </span>
-                    <span className="text-xs text-gray-500">
+                    <span className="text-xs text-emerald-600">
                       {new Date(order.created_at).toLocaleDateString('fr-FR', {
                         day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit'
                       })}
@@ -137,16 +137,16 @@ export default function OrdersPage() {
 
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-3">
                     <div>
-                      <p className="text-xs text-gray-500">Client</p>
-                      <p className="text-white font-medium text-sm">{order.customer_name}</p>
+                      <p className="text-xs text-emerald-600">Client</p>
+                      <p className="text-emerald-950 font-medium text-sm">{order.customer_name}</p>
                     </div>
                     <div>
-                      <p className="text-xs text-gray-500">WhatsApp</p>
-                      <p className="text-white text-sm">{order.customer_phone}</p>
+                      <p className="text-xs text-emerald-600">WhatsApp</p>
+                      <p className="text-emerald-950 text-sm">{order.customer_phone}</p>
                     </div>
                     <div>
-                      <p className="text-xs text-gray-500">Total</p>
-                      <p className="text-white font-bold">{order.total?.toLocaleString()} FCFA</p>
+                      <p className="text-xs text-emerald-600">Total</p>
+                      <p className="text-emerald-950 font-bold">{order.total?.toLocaleString()} FCFA</p>
                     </div>
                   </div>
 
@@ -160,7 +160,7 @@ export default function OrdersPage() {
                   </div>
 
                   {order.notes && (
-                    <p className="text-xs text-gray-400 mt-2 italic">Note: {order.notes}</p>
+                    <p className="text-xs text-emerald-800 mt-2 italic">Note: {order.notes}</p>
                   )}
                 </div>
 
@@ -170,7 +170,7 @@ export default function OrdersPage() {
                     <button
                       onClick={() => updateStatus(order.id, 'verified')}
                       disabled={actionLoading === order.id + 'verified'}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 hover:bg-cyan-500/30 transition-all disabled:opacity-50"
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-cyan-500/20 text-sky-500 border border-cyan-500/30 hover:bg-cyan-500/30 transition-all disabled:opacity-50"
                     >
                       <CheckCircle size={12} />
                       Vérifier
@@ -180,7 +180,7 @@ export default function OrdersPage() {
                     <button
                       onClick={() => sendOrder(order.id)}
                       disabled={actionLoading === order.id + 'send'}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold whatsapp-btn text-white transition-all disabled:opacity-50"
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold whatsapp-btn text-emerald-950 transition-all disabled:opacity-50"
                     >
                       <MessageCircle size={12} />
                       Envoyer WA

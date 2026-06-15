@@ -40,11 +40,11 @@ export default async function BooksPage({ searchParams }: BooksPageProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-10">
-          <p className="text-purple-400 text-sm font-medium mb-1">📚 Catalogue</p>
-          <h1 className="text-4xl font-bold text-white">
+          <p className="text-pink-500 text-sm font-medium mb-1">📚 Catalogue</p>
+          <h1 className="text-4xl font-bold text-emerald-950">
             {params.category ? params.category : params.q ? `Résultats pour "${params.q}"` : 'Tous les livres'}
           </h1>
-          <p className="text-gray-400 mt-2">
+          <p className="text-emerald-800 mt-2">
             {books.length} livre{books.length > 1 ? 's' : ''} trouvé{books.length > 1 ? 's' : ''}
           </p>
         </div>

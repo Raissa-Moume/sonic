@@ -47,24 +47,24 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="pt-32 pb-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 mb-8">
-          <Globe size={14} className="text-cyan-400" />
-          <span className="text-xs font-medium text-gray-300">Notre histoire</span>
+          <Globe size={14} className="text-sky-500" />
+          <span className="text-xs font-medium text-emerald-700">Notre histoire</span>
         </div>
-        <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+        <h1 className="text-5xl md:text-6xl font-bold text-emerald-950 mb-6">
           À propos de{' '}
           <span className="gradient-text">Sonic Books</span>
         </h1>
-        <p className="text-gray-400 text-xl leading-relaxed max-w-3xl mx-auto">
+        <p className="text-emerald-800 text-xl leading-relaxed max-w-3xl mx-auto">
           Nous sommes une librairie 100% numérique née au Cameroun, avec une mission simple :
-          <strong className="text-white"> rendre l'apprentissage et le savoir accessibles</strong> à chacun grâce à la technologie.
+          <strong className="text-emerald-950"> rendre l'apprentissage et le savoir accessibles</strong> à chacun grâce à la technologie.
         </p>
       </section>
 
       {/* How it works */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
         <div className="text-center mb-14">
-          <p className="text-purple-400 text-sm font-medium mb-2">Simple & rapide</p>
-          <h2 className="text-3xl font-bold text-white">Comment ça marche ?</h2>
+          <p className="text-pink-500 text-sm font-medium mb-2">Simple & rapide</p>
+          <h2 className="text-3xl font-bold text-emerald-950">Comment ça marche ?</h2>
         </div>
 
         <div className="relative">
@@ -78,13 +78,13 @@ export default function AboutPage() {
                 <div className="relative mx-auto w-24 h-24 mb-6">
                   <div className="absolute inset-0 rounded-full"
                     style={{ background: 'linear-gradient(135deg, rgba(124,58,237,0.2), rgba(6,182,212,0.2))' }} />
-                  <div className="relative w-full h-full rounded-full glass flex flex-col items-center justify-center border border-purple-500/30">
-                    <step.icon size={24} className="text-purple-400 mb-1" />
-                    <span className="text-xs text-gray-500 font-bold">{step.number}</span>
+                  <div className="relative w-full h-full rounded-full glass flex flex-col items-center justify-center border border-pink-300">
+                    <step.icon size={24} className="text-pink-500 mb-1" />
+                    <span className="text-xs text-emerald-600 font-bold">{step.number}</span>
                   </div>
                 </div>
-                <h3 className="font-semibold text-white mb-2">{step.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{step.description}</p>
+                <h3 className="font-semibold text-emerald-950 mb-2">{step.title}</h3>
+                <p className="text-emerald-800 text-sm leading-relaxed">{step.description}</p>
               </div>
             ))}
           </div>
@@ -95,14 +95,14 @@ export default function AboutPage() {
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
         <div className="divider mb-16" />
         <div className="text-center mb-14">
-          <h2 className="text-3xl font-bold text-white">Nos valeurs</h2>
+          <h2 className="text-3xl font-bold text-emerald-950">Nos valeurs</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {values.map((value, i) => (
             <div key={i} className="glass rounded-2xl p-6 hover:border-purple-500/40 transition-all duration-300">
               <div className="text-3xl mb-4">{value.icon}</div>
-              <h3 className="font-semibold text-white text-lg mb-2">{value.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{value.desc}</p>
+              <h3 className="font-semibold text-emerald-950 text-lg mb-2">{value.title}</h3>
+              <p className="text-emerald-800 text-sm leading-relaxed">{value.desc}</p>
             </div>
           ))}
         </div>
@@ -113,8 +113,8 @@ export default function AboutPage() {
         <div className="glass rounded-3xl p-10 text-center glow-purple relative overflow-hidden">
           <div className="absolute inset-0 dot-grid opacity-20" />
           <div className="relative z-10">
-            <h2 className="text-3xl font-bold text-white mb-4">Prêt à commencer ? 🚀</h2>
-            <p className="text-gray-400 mb-8">
+            <h2 className="text-3xl font-bold text-emerald-950 mb-4">Prêt à commencer ? 🚀</h2>
+            <p className="text-emerald-800 mb-8">
               Rejoignez des milliers d&apos;étudiants qui font confiance à Sonic Books.
             </p>
             <Link href="/books" className="btn-primary inline-flex items-center gap-2">
