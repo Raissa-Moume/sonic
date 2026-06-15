@@ -52,10 +52,12 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+DROP TRIGGER IF EXISTS update_books_updated_at ON books;
 CREATE TRIGGER update_books_updated_at
   BEFORE UPDATE ON books
   FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
+DROP TRIGGER IF EXISTS update_orders_updated_at ON orders;
 CREATE TRIGGER update_orders_updated_at
   BEFORE UPDATE ON orders
   FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
@@ -67,11 +69,13 @@ CREATE TRIGGER update_orders_updated_at
 -- Books: public read, admin write
 ALTER TABLE books ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Books are publicly readable" ON books;
 CREATE POLICY "Books are publicly readable"
   ON books FOR SELECT
   TO anon, authenticated
   USING (true);
 
+DROP POLICY IF EXISTS "Books are writable by service role" ON books;
 CREATE POLICY "Books are writable by service role"
   ON books FOR ALL
   TO service_role
@@ -81,16 +85,19 @@ CREATE POLICY "Books are writable by service role"
 -- Orders: insert by anyone, read/update by service role only
 ALTER TABLE orders ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Anyone can create an order" ON orders;
 CREATE POLICY "Anyone can create an order"
   ON orders FOR INSERT
   TO anon, authenticated
   WITH CHECK (true);
 
+DROP POLICY IF EXISTS "Orders are readable by service role" ON orders;
 CREATE POLICY "Orders are readable by service role"
   ON orders FOR SELECT
   TO service_role
   USING (true);
 
+DROP POLICY IF EXISTS "Orders are updatable by service role" ON orders;
 CREATE POLICY "Orders are updatable by service role"
   ON orders FOR UPDATE
   TO service_role
@@ -108,51 +115,55 @@ CREATE INDEX IF NOT EXISTS idx_orders_created_at ON orders(created_at DESC);
 CREATE INDEX IF NOT EXISTS idx_orders_phone ON orders(customer_phone);
 
 -- =============================================
--- SAMPLE DATA (optional — remove in production)
+-- CLEANUP PREVIOUS SAMPLE DATA (Optional, to avoid duplicates)
+-- =============================================
+TRUNCATE TABLE books;
+
+-- =============================================
+-- NEW SAMPLE DATA (Adapté à ta demande)
 -- =============================================
 INSERT INTO books (title, author, description, price, category, cover_image, pdf_url, stock, featured) VALUES
 (
-  'Mathématiques Terminale C',
-  'Collection Nationale',
-  'Manuel complet de mathématiques pour la Terminale C incluant algèbre, analyse et géométrie.',
+  'Le Cerveau Magique : Comment optimiser son intellect',
+  'Dr. Jean Cerveau',
+  'Un guide fascinant pour comprendre le fonctionnement de notre cerveau et augmenter notre capacité de mémorisation.',
+  4500,
+  'Psychologie & Cerveau',
+  'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=400&h=560&fit=crop',
+  'https://drive.google.com/file/d/EXAMPLE_CERVEAU_ID/view',
+  999,
+  true
+),
+(
+  'Guide Pratique de l''Élevage Moderne',
+  'Pierre Agricole',
+  'Les techniques modernes pour réussir son élevage de volaille et de bétail en Afrique subsaharienne.',
   3500,
-  'Mathématiques',
-  'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=560&fit=crop',
-  'https://drive.google.com/file/d/EXAMPLE_PDF_ID/view',
+  'Élevage',
+  'https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=400&h=560&fit=crop',
+  'https://drive.google.com/file/d/EXAMPLE_ELEVAGE_ID/view',
   999,
   true
 ),
 (
-  'Français — Textes et méthodes',
-  'Paul Noutchié',
-  'Recueil de textes littéraires avec méthodologie pour la dissertation et le commentaire.',
-  2500,
-  'Français',
-  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=560&fit=crop',
-  'https://drive.google.com/file/d/EXAMPLE_PDF_ID2/view',
-  999,
-  true
-),
-(
-  'Sciences Physiques Tle D',
-  'Équipe Pédagogique',
-  'Cours complet de physique-chimie pour la Terminale D avec exercices corrigés.',
+  'Agriculture Rentable : De la graine au marché',
+  'Amadou Fermier',
+  'Apprenez comment lancer et rentabiliser votre projet agricole, avec des études de cas concrètes.',
   3000,
-  'Physique-Chimie',
-  'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=400&h=560&fit=crop',
-  'https://drive.google.com/file/d/EXAMPLE_PDF_ID3/view',
+  'Agriculture',
+  'https://images.unsplash.com/photo-1592982537447-6f296d0528c3?w=400&h=560&fit=crop',
+  'https://drive.google.com/file/d/EXAMPLE_AGRICULTURE_ID/view',
+  999,
+  true
+),
+(
+  'Le Secret de la Réussite Personnelle',
+  'Marie Succès',
+  'Découvrez les méthodes infaillibles pour atteindre vos objectifs et développer un mental d''acier.',
+  2500,
+  'Développement Personnel',
+  'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=400&h=560&fit=crop',
+  'https://drive.google.com/file/d/EXAMPLE_DEV_ID/view',
   999,
   false
-),
-(
-  'Histoire-Géographie 3ème',
-  'Nathan Cameroun',
-  'Manuel d''histoire et géographie pour la classe de 3ème.',
-  2000,
-  'Histoire-Géographie',
-  'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=560&fit=crop',
-  'https://drive.google.com/file/d/EXAMPLE_PDF_ID4/view',
-  999,
-  true
-)
-ON CONFLICT DO NOTHING;
+);
