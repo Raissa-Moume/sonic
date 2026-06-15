@@ -22,7 +22,7 @@ export default function BookCard({ book }: BookCardProps) {
   }
 
   return (
-    <div className="book-card glass rounded-2xl overflow-hidden group">
+    <div className="book-card bg-white shadow-sm border border-gray-100 rounded-2xl overflow-hidden group">
       {/* Cover */}
       <div className="relative h-56 overflow-hidden">
         <Image
@@ -48,7 +48,7 @@ export default function BookCard({ book }: BookCardProps) {
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <Link
             href={`/books/${book.id}`}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-emerald-950 glass"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-gray-900 bg-white shadow-sm border border-gray-100"
           >
             <Eye size={14} />
             Voir détails
@@ -58,8 +58,8 @@ export default function BookCard({ book }: BookCardProps) {
 
       {/* Content */}
       <div className="p-4">
-        <p className="text-xs text-emerald-600 mb-1 truncate">{book.author}</p>
-        <h3 className="font-semibold text-emerald-950 line-clamp-2 text-sm leading-tight mb-3">
+        <p className="text-xs text-green-600 mb-1 truncate">{book.author}</p>
+        <h3 className="font-semibold text-gray-900 line-clamp-2 text-sm leading-tight mb-3">
           {book.title}
         </h3>
 
@@ -69,13 +69,13 @@ export default function BookCard({ book }: BookCardProps) {
             <span className="text-xl font-bold gradient-text">
               {book.price.toLocaleString()}
             </span>
-            <span className="text-xs text-emerald-600 ml-1">FCFA</span>
+            <span className="text-xs text-green-600 ml-1">FCFA</span>
           </div>
           <button
             onClick={handleAdd}
             className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-300 ${
               added
-                ? 'bg-green-500/20 text-emerald-600 border border-green-500/30'
+                ? 'bg-green-500/20 text-green-600 border border-green-500/30'
                 : 'btn-primary'
             }`}
           >

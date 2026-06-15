@@ -65,27 +65,27 @@ export default function OrderForm({ onBack }: OrderFormProps) {
     <div className="max-w-xl mx-auto">
       <button
         onClick={onBack}
-        className="inline-flex items-center gap-2 text-emerald-800 hover:text-emerald-950 text-sm transition-colors mb-6"
+        className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 text-sm transition-colors mb-6"
       >
         <ArrowLeft size={14} />
         Retour au panier
       </button>
 
-      <div className="glass rounded-2xl p-8">
+      <div className="bg-white shadow-sm border border-gray-100 rounded-2xl p-8">
         <div className="flex items-center gap-3 mb-8">
           <div className="w-10 h-10 rounded-xl flex items-center justify-center"
             style={{ background: 'linear-gradient(135deg, #7c3aed, #06b6d4)' }}>
-            <MessageCircle size={20} className="text-emerald-950" />
+            <MessageCircle size={20} className="text-gray-900" />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-emerald-950">Finaliser la commande</h2>
-            <p className="text-xs text-emerald-800">Vous recevrez vos livres sur WhatsApp</p>
+            <h2 className="text-xl font-bold text-gray-900">Finaliser la commande</h2>
+            <p className="text-xs text-gray-600">Vous recevrez vos livres sur WhatsApp</p>
           </div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-emerald-700 mb-1.5">
+            <label className="block text-sm font-medium text-gray-500 mb-1.5">
               Nom complet *
             </label>
             <input
@@ -99,8 +99,8 @@ export default function OrderForm({ onBack }: OrderFormProps) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-emerald-700 mb-1.5">
-              Numéro WhatsApp * <span className="text-emerald-600 font-normal">(avec indicatif pays)</span>
+            <label className="block text-sm font-medium text-gray-500 mb-1.5">
+              Numéro WhatsApp * <span className="text-green-600 font-normal">(avec indicatif pays)</span>
             </label>
             <input
               type="tel"
@@ -113,8 +113,8 @@ export default function OrderForm({ onBack }: OrderFormProps) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-emerald-700 mb-1.5">
-              Email <span className="text-emerald-600 font-normal">(optionnel)</span>
+            <label className="block text-sm font-medium text-gray-500 mb-1.5">
+              Email <span className="text-green-600 font-normal">(optionnel)</span>
             </label>
             <input
               type="email"
@@ -126,8 +126,8 @@ export default function OrderForm({ onBack }: OrderFormProps) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-emerald-700 mb-1.5">
-              Notes <span className="text-emerald-600 font-normal">(optionnel)</span>
+            <label className="block text-sm font-medium text-gray-500 mb-1.5">
+              Notes <span className="text-green-600 font-normal">(optionnel)</span>
             </label>
             <textarea
               rows={3}
@@ -140,16 +140,16 @@ export default function OrderForm({ onBack }: OrderFormProps) {
 
           {/* Summary */}
           <div className="bg-black/20 rounded-xl p-4 border border-white/5">
-            <p className="text-xs text-emerald-800 uppercase tracking-wider mb-3 font-semibold">Récapitulatif</p>
+            <p className="text-xs text-gray-600 uppercase tracking-wider mb-3 font-semibold">Récapitulatif</p>
             {state.items.map(({ book, quantity }) => (
               <div key={book.id} className="flex justify-between text-sm mb-1">
-                <span className="text-emerald-800 truncate mr-2">{book.title} x{quantity}</span>
-                <span className="text-emerald-950 shrink-0">{(book.price * quantity).toLocaleString()} FCFA</span>
+                <span className="text-gray-600 truncate mr-2">{book.title} x{quantity}</span>
+                <span className="text-gray-900 shrink-0">{(book.price * quantity).toLocaleString()} FCFA</span>
               </div>
             ))}
             <div className="divider mt-3 mb-3" />
             <div className="flex justify-between">
-              <span className="font-semibold text-emerald-950">Total</span>
+              <span className="font-semibold text-gray-900">Total</span>
               <span className="font-bold gradient-text">{state.total.toLocaleString()} FCFA</span>
             </div>
           </div>
@@ -178,7 +178,7 @@ export default function OrderForm({ onBack }: OrderFormProps) {
             )}
           </button>
 
-          <p className="text-xs text-emerald-600 text-center">
+          <p className="text-xs text-green-600 text-center">
             Après confirmation, vous recevrez un message WhatsApp avec les instructions de paiement.
           </p>
         </form>

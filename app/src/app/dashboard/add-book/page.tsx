@@ -117,10 +117,10 @@ export default function AddBookPage() {
     return (
       <div className="p-6 md:p-8 flex flex-col items-center justify-center min-h-64">
         <div className="w-16 h-16 rounded-full bg-green-500/20 border border-green-500/30 flex items-center justify-center mb-4">
-          <CheckCircle size={32} className="text-emerald-600" />
+          <CheckCircle size={32} className="text-green-600" />
         </div>
-        <h2 className="text-xl font-bold text-emerald-950 mb-2">Livre ajouté !</h2>
-        <p className="text-emerald-800 text-sm">Redirection vers la liste...</p>
+        <h2 className="text-xl font-bold text-gray-900 mb-2">Livre ajouté !</h2>
+        <p className="text-gray-600 text-sm">Redirection vers la liste...</p>
       </div>
     );
   }
@@ -128,14 +128,14 @@ export default function AddBookPage() {
   return (
     <div className="p-6 md:p-8 max-w-2xl">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-emerald-950">Ajouter un livre</h1>
-        <p className="text-emerald-800 text-sm mt-1">Remplissez tous les champs requis</p>
+        <h1 className="text-2xl font-bold text-gray-900">Ajouter un livre</h1>
+        <p className="text-gray-600 text-sm mt-1">Remplissez tous les champs requis</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-5">
         <div className="grid grid-cols-2 gap-4">
           <div className="col-span-2">
-            <label className="block text-sm font-medium text-emerald-700 mb-1.5">Titre *</label>
+            <label className="block text-sm font-medium text-gray-500 mb-1.5">Titre *</label>
             <input
               type="text"
               required
@@ -147,7 +147,7 @@ export default function AddBookPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-emerald-700 mb-1.5">Auteur *</label>
+            <label className="block text-sm font-medium text-gray-500 mb-1.5">Auteur *</label>
             <input
               type="text"
               required
@@ -159,7 +159,7 @@ export default function AddBookPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-emerald-700 mb-1.5">Catégorie *</label>
+            <label className="block text-sm font-medium text-gray-500 mb-1.5">Catégorie *</label>
             <select
               required
               value={form.category}
@@ -174,7 +174,7 @@ export default function AddBookPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-emerald-700 mb-1.5">Prix (FCFA) *</label>
+            <label className="block text-sm font-medium text-gray-500 mb-1.5">Prix (FCFA) *</label>
             <input
               type="number"
               required
@@ -187,7 +187,7 @@ export default function AddBookPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-emerald-700 mb-1.5">Stock</label>
+            <label className="block text-sm font-medium text-gray-500 mb-1.5">Stock</label>
             <input
               type="number"
               min="0"
@@ -199,7 +199,7 @@ export default function AddBookPage() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-emerald-700 mb-1.5">Description</label>
+          <label className="block text-sm font-medium text-gray-500 mb-1.5">Description</label>
           <textarea
             rows={3}
             value={form.description}
@@ -211,7 +211,7 @@ export default function AddBookPage() {
 
         {/* Cover upload */}
         <div>
-          <label className="block text-sm font-medium text-emerald-700 mb-1.5">Image de couverture</label>
+          <label className="block text-sm font-medium text-gray-500 mb-1.5">Image de couverture</label>
           <div className="flex items-start gap-4">
             {coverPreview && (
               <div className="relative w-20 h-28 rounded-xl overflow-hidden shrink-0">
@@ -219,18 +219,18 @@ export default function AddBookPage() {
               </div>
             )}
             <div className="flex-1">
-              <label className="flex flex-col items-center justify-center h-24 border-2 border-dashed border-pink-300 rounded-xl cursor-pointer hover:border-purple-500/60 transition-colors">
+              <label className="flex flex-col items-center justify-center h-24 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer hover:border-purple-500/60 transition-colors">
                 {uploadingCover ? (
-                  <Loader2 size={20} className="animate-spin text-pink-500" />
+                  <Loader2 size={20} className="animate-spin text-green-600" />
                 ) : (
                   <>
-                    <Upload size={20} className="text-emerald-800 mb-1" />
-                    <span className="text-xs text-emerald-800">Cliquer pour uploader (JPG, PNG)</span>
+                    <Upload size={20} className="text-gray-600 mb-1" />
+                    <span className="text-xs text-gray-600">Cliquer pour uploader (JPG, PNG)</span>
                   </>
                 )}
                 <input type="file" accept="image/*" onChange={handleCoverUpload} className="hidden" />
               </label>
-              <p className="text-xs text-emerald-600 mt-1">Ou coller un URL direct :</p>
+              <p className="text-xs text-green-600 mt-1">Ou coller un URL direct :</p>
               <input
                 type="url"
                 value={form.cover_image}
@@ -244,24 +244,24 @@ export default function AddBookPage() {
 
         {/* PDF upload */}
         <div>
-          <label className="block text-sm font-medium text-emerald-700 mb-1.5">Fichier PDF *</label>
-          <label className="flex flex-col items-center justify-center h-24 border-2 border-dashed border-pink-300 rounded-xl cursor-pointer hover:border-purple-500/60 transition-colors">
+          <label className="block text-sm font-medium text-gray-500 mb-1.5">Fichier PDF *</label>
+          <label className="flex flex-col items-center justify-center h-24 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer hover:border-purple-500/60 transition-colors">
             {uploadingPdf ? (
-              <Loader2 size={20} className="animate-spin text-pink-500" />
+              <Loader2 size={20} className="animate-spin text-green-600" />
             ) : form.pdf_url ? (
               <>
-                <CheckCircle size={20} className="text-emerald-600 mb-1" />
-                <span className="text-xs text-emerald-600">PDF uploadé ✓</span>
+                <CheckCircle size={20} className="text-green-600 mb-1" />
+                <span className="text-xs text-green-600">PDF uploadé ✓</span>
               </>
             ) : (
               <>
-                <Upload size={20} className="text-emerald-800 mb-1" />
-                <span className="text-xs text-emerald-800">Cliquer pour uploader le PDF</span>
+                <Upload size={20} className="text-gray-600 mb-1" />
+                <span className="text-xs text-gray-600">Cliquer pour uploader le PDF</span>
               </>
             )}
             <input type="file" accept=".pdf" onChange={handlePdfUpload} className="hidden" />
           </label>
-          <p className="text-xs text-emerald-600 mt-1">Ou coller l'URL Google Drive (lien de partage direct) :</p>
+          <p className="text-xs text-green-600 mt-1">Ou coller l'URL Google Drive (lien de partage direct) :</p>
           <input
             type="url"
             value={form.pdf_url}
@@ -280,9 +280,9 @@ export default function AddBookPage() {
               onChange={(e) => setForm({ ...form, featured: e.target.checked })}
               className="sr-only peer"
             />
-            <div className="w-10 h-5 rounded-full bg-pink-100 peer-checked:bg-pink-500 transition-colors after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:w-4 after:h-4 after:rounded-full after:bg-white after:transition-all peer-checked:after:translate-x-5"></div>
+            <div className="w-10 h-5 rounded-full bg-green-50 peer-checked:bg-white0 transition-colors after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:w-4 after:h-4 after:rounded-full after:bg-white after:transition-all peer-checked:after:translate-x-5"></div>
           </label>
-          <span className="text-sm text-emerald-700">Marquer comme livre populaire</span>
+          <span className="text-sm text-gray-500">Marquer comme livre populaire</span>
         </div>
 
         {error && (

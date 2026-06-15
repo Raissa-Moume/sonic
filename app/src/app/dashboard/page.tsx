@@ -58,8 +58,8 @@ export default function DashboardPage() {
   return (
     <div className="p-6 md:p-8">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-emerald-950">Tableau de bord</h1>
-        <p className="text-emerald-800 text-sm mt-1">Vue d'ensemble de votre librairie</p>
+        <h1 className="text-2xl font-bold text-gray-900">Tableau de bord</h1>
+        <p className="text-gray-600 text-sm mt-1">Vue d'ensemble de votre librairie</p>
       </div>
 
       {loading ? (
@@ -75,8 +75,8 @@ export default function DashboardPage() {
               <div key={i} className="stat-card">
                 <div className="flex items-start justify-between">
                   <div>
-                    <p className="text-xs text-emerald-800 uppercase tracking-wider mb-1">{card.label}</p>
-                    <p className="text-2xl font-bold text-emerald-950">{card.value}</p>
+                    <p className="text-xs text-gray-600 uppercase tracking-wider mb-1">{card.label}</p>
+                    <p className="text-2xl font-bold text-gray-900">{card.value}</p>
                   </div>
                   <div
                     className="w-10 h-10 rounded-xl flex items-center justify-center"
@@ -90,37 +90,37 @@ export default function DashboardPage() {
           </div>
 
           {/* Recent orders */}
-          <div className="glass rounded-2xl overflow-hidden">
+          <div className="bg-white shadow-sm border border-gray-100 rounded-2xl overflow-hidden">
             <div className="p-6 border-b border-purple-500/10">
-              <h2 className="font-semibold text-emerald-950">Commandes récentes</h2>
+              <h2 className="font-semibold text-gray-900">Commandes récentes</h2>
             </div>
             <div className="overflow-x-auto">
               {stats?.recentOrders?.length === 0 ? (
-                <div className="p-8 text-center text-emerald-800">Aucune commande pour l'instant</div>
+                <div className="p-8 text-center text-gray-600">Aucune commande pour l'instant</div>
               ) : (
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-white/5">
-                      <th className="text-left px-6 py-3 text-xs font-medium text-emerald-800 uppercase">Client</th>
-                      <th className="text-left px-6 py-3 text-xs font-medium text-emerald-800 uppercase">Total</th>
-                      <th className="text-left px-6 py-3 text-xs font-medium text-emerald-800 uppercase">Statut</th>
-                      <th className="text-left px-6 py-3 text-xs font-medium text-emerald-800 uppercase">Date</th>
+                      <th className="text-left px-6 py-3 text-xs font-medium text-gray-600 uppercase">Client</th>
+                      <th className="text-left px-6 py-3 text-xs font-medium text-gray-600 uppercase">Total</th>
+                      <th className="text-left px-6 py-3 text-xs font-medium text-gray-600 uppercase">Statut</th>
+                      <th className="text-left px-6 py-3 text-xs font-medium text-gray-600 uppercase">Date</th>
                     </tr>
                   </thead>
                   <tbody>
                     {stats?.recentOrders?.map((order: any) => (
                       <tr key={order.id} className="border-b border-white/5 hover:bg-white/2 transition-colors">
                         <td className="px-6 py-3">
-                          <p className="text-emerald-950 font-medium">{order.customer_name}</p>
-                          <p className="text-emerald-600 text-xs">{order.customer_phone}</p>
+                          <p className="text-gray-900 font-medium">{order.customer_name}</p>
+                          <p className="text-green-600 text-xs">{order.customer_phone}</p>
                         </td>
-                        <td className="px-6 py-3 text-emerald-950 font-medium">
+                        <td className="px-6 py-3 text-gray-900 font-medium">
                           {order.total?.toLocaleString()} FCFA
                         </td>
                         <td className="px-6 py-3">
                           <StatusBadge status={order.status} />
                         </td>
-                        <td className="px-6 py-3 text-emerald-800 text-xs">
+                        <td className="px-6 py-3 text-gray-600 text-xs">
                           {new Date(order.created_at).toLocaleDateString('fr-FR')}
                         </td>
                       </tr>

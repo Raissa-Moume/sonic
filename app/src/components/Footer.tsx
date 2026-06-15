@@ -11,22 +11,22 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-2 mb-4">
               <div className="w-9 h-9 rounded-xl flex items-center justify-center"
                 style={{ background: 'linear-gradient(135deg, #7c3aed, #06b6d4)' }}>
-                <BookOpen size={18} className="text-emerald-950" />
+                <BookOpen size={18} className="text-gray-900" />
               </div>
               <span className="text-xl font-bold gradient-text">Sonic Books</span>
             </Link>
-            <p className="text-emerald-800 text-sm leading-relaxed max-w-sm">
+            <p className="text-gray-600 text-sm leading-relaxed max-w-sm">
               Votre librairie numérique préférée. Achetez vos livres PDF en toute sécurité et recevez-les instantanément sur WhatsApp.
             </p>
             <div className="flex items-center gap-2 mt-6">
               <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-              <span className="text-xs text-emerald-600 font-medium">Service disponible 7j/7</span>
+              <span className="text-xs text-green-600 font-medium">Service disponible 7j/7</span>
             </div>
           </div>
 
           {/* Navigation */}
           <div>
-            <h3 className="font-semibold text-emerald-950 mb-4">Navigation</h3>
+            <h3 className="font-semibold text-gray-900 mb-4">Navigation</h3>
             <ul className="space-y-2">
               {[
                 { href: '/', label: 'Accueil' },
@@ -37,7 +37,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-emerald-800 hover:text-pink-500 transition-colors"
+                    className="text-sm text-gray-600 hover:text-green-600 transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -48,14 +48,14 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-semibold text-emerald-950 mb-4">Contact</h3>
+            <h3 className="font-semibold text-gray-900 mb-4">Contact</h3>
             <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-sm text-emerald-800">
-                <MessageCircle size={14} className="text-emerald-600" />
+              <li className="flex items-center gap-2 text-sm text-gray-600">
+                <MessageCircle size={14} className="text-green-600" />
                 WhatsApp disponible
               </li>
-              <li className="flex items-center gap-2 text-sm text-emerald-800">
-                <MapPin size={14} className="text-pink-500" />
+              <li className="flex items-center gap-2 text-sm text-gray-600">
+                <MapPin size={14} className="text-green-600" />
                 Cameroun 🇨🇲
               </li>
             </ul>
@@ -65,10 +65,10 @@ export default function Footer() {
         <div className="divider my-10" />
 
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-emerald-600">
+          <p className="text-xs text-green-600">
             © 2025 Sonic Books. Tous droits réservés.
           </p>
-          <p className="text-xs text-emerald-600">
+          <p className="text-xs text-green-600">
             Fait avec ❤️ pour l&apos;éducation en Afrique
           </p>
         </div>

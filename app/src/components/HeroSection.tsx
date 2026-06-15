@@ -36,36 +36,36 @@ export default function HeroSection({ categories }: HeroSectionProps) {
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 mb-8">
+        <div className="inline-flex items-center gap-2 bg-white shadow-sm border border-gray-100 rounded-full px-4 py-1.5 mb-8">
           <Sparkles size={14} className="text-orange-500" />
-          <span className="text-xs font-medium text-emerald-700">Votre librairie numérique préférée 🇨🇲</span>
+          <span className="text-xs font-medium text-gray-500">Votre librairie numérique préférée 🇨🇲</span>
         </div>
 
         {/* Title */}
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold leading-tight mb-6">
-          <span className="text-emerald-950">Vos livres </span>
+          <span className="text-gray-900">Vos livres </span>
           <br />
           <span className="gradient-text">PDF en 1 clic</span>
           <br />
-          <span className="text-emerald-950">sur </span>
-          <span className="text-emerald-600">WhatsApp</span>
+          <span className="text-gray-900">sur </span>
+          <span className="text-green-600">WhatsApp</span>
         </h1>
 
-        <p className="text-emerald-800 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-gray-600 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
           Découvrez des ouvrages fascinants sur l'agriculture, l'élevage, le fonctionnement du cerveau et plus encore.
           Paiement vérifié manuellement et livraison directe des PDF sur votre WhatsApp.
         </p>
 
         {/* Search bar */}
         <form onSubmit={handleSearch} className="relative max-w-xl mx-auto mb-10">
-          <div className="glass rounded-2xl overflow-hidden flex items-center p-1.5 glow-purple transition-all duration-300 focus-within:glow-purple">
-            <Search size={18} className="text-emerald-600 ml-3 shrink-0" />
+          <div className="bg-white shadow-sm border border-gray-100 rounded-2xl overflow-hidden flex items-center p-1.5 glow-purple transition-all duration-300 focus-within:glow-purple">
+            <Search size={18} className="text-green-600 ml-3 shrink-0" />
             <input
               type="text"
               placeholder="Rechercher un livre, un auteur..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="flex-1 bg-transparent px-3 py-2 text-emerald-950 placeholder-gray-500 outline-none text-sm"
+              className="flex-1 bg-transparent px-3 py-2 text-gray-900 placeholder-gray-500 outline-none text-sm"
             />
             <button type="submit" className="btn-primary px-4 py-2 text-sm flex items-center gap-1.5 shrink-0">
               <Search size={14} />
@@ -77,7 +77,7 @@ export default function HeroSection({ categories }: HeroSectionProps) {
         {/* Quick categories */}
         {categories.length > 0 && (
           <div className="flex flex-wrap justify-center gap-2 mb-12">
-            <span className="text-xs text-emerald-600 self-center">Catégories :</span>
+            <span className="text-xs text-green-600 self-center">Catégories :</span>
             {categories.slice(0, 5).map((cat) => (
               <Link
                 key={cat}
@@ -110,7 +110,7 @@ export default function HeroSection({ categories }: HeroSectionProps) {
           ].map((stat, i) => (
             <div key={i} className="text-center">
               <div className="text-2xl font-bold gradient-text">{stat.value}</div>
-              <div className="text-xs text-emerald-600 mt-0.5">{stat.label}</div>
+              <div className="text-xs text-green-600 mt-0.5">{stat.label}</div>
             </div>
           ))}
         </div>

@@ -32,7 +32,7 @@ export default function BooksGrid({ books, categories, currentCategory, currentS
       <div className="flex flex-col md:flex-row gap-4 mb-8">
         {/* Search */}
         <form onSubmit={handleSearch} className="relative flex-1">
-          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-emerald-600" />
+          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-green-600" />
           <input
             type="text"
             placeholder="Rechercher un livre..."
@@ -47,7 +47,7 @@ export default function BooksGrid({ books, categories, currentCategory, currentS
           <Link
             href="/books"
             className={`badge py-1.5 px-3 text-xs cursor-pointer transition-all ${
-              !currentCategory ? 'badge-purple' : 'text-emerald-600 border border-gray-700 hover:border-purple-500/50'
+              !currentCategory ? 'badge-purple' : 'text-green-600 border border-gray-700 hover:border-purple-500/50'
             }`}
           >
             Tous
@@ -59,7 +59,7 @@ export default function BooksGrid({ books, categories, currentCategory, currentS
               className={`badge py-1.5 px-3 text-xs cursor-pointer transition-all ${
                 currentCategory === cat
                   ? 'badge-purple'
-                  : 'text-emerald-600 border border-gray-700 hover:border-purple-500/50 hover:text-emerald-700'
+                  : 'text-green-600 border border-gray-700 hover:border-purple-500/50 hover:text-gray-500'
               }`}
             >
               {cat}
@@ -72,8 +72,8 @@ export default function BooksGrid({ books, categories, currentCategory, currentS
       {books.length === 0 ? (
         <div className="text-center py-20">
           <div className="text-6xl mb-4">📚</div>
-          <h2 className="text-xl font-semibold text-emerald-950 mb-2">Aucun livre trouvé</h2>
-          <p className="text-emerald-800 text-sm">Essayez de modifier votre recherche</p>
+          <h2 className="text-xl font-semibold text-gray-900 mb-2">Aucun livre trouvé</h2>
+          <p className="text-gray-600 text-sm">Essayez de modifier votre recherche</p>
         </div>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
