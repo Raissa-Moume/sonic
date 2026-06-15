@@ -147,7 +147,7 @@ INSERT INTO books (title, author, description, price, category, cover_image, pdf
 (
   'Histoire-Géographie 3ème',
   'Nathan Cameroun',
-  'Manuel d'histoire et géographie pour la classe de 3ème.',
+  'Manuel d''histoire et géographie pour la classe de 3ème.',
   2000,
   'Histoire-Géographie',
   'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=560&fit=crop',
