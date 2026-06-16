@@ -2,9 +2,10 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ShoppingCart, BookOpen, Menu, X } from 'lucide-react';
+import { ShoppingCart, Menu, X } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -13,7 +14,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 20);
+    const handler = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handler);
     return () => window.removeEventListener('scroll', handler);
   }, []);
@@ -26,30 +27,29 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'bg-white shadow-sm border border-gray-100 shadow-2xl' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-200 py-2' : 'bg-transparent py-4'
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-9 h-9 rounded-xl flex items-center justify-center pulse-glow"
-            style={{ background: 'linear-gradient(135deg, #7c3aed, #06b6d4)' }}>
-            <BookOpen size={18} className="text-gray-900" />
+          <div className="w-8 h-8 rounded bg-[#25D366] flex items-center justify-center text-white font-bold text-lg shadow-sm">
+            S
           </div>
-          <span className="text-xl font-bold gradient-text">Sonic Books</span>
+          <span className="text-xl font-bold text-gray-900 tracking-tight">Sonic Books</span>
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden md:flex items-center gap-1 bg-gray-50/50 p-1 rounded-full border border-gray-100">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+              className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 ${
                 pathname === link.href
-                  ? 'text-green-600 bg-green-50'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-white/5'
+                  ? 'text-white bg-[#25D366] shadow-sm'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-white'
               }`}
             >
               {link.label}
@@ -58,15 +58,14 @@ export default function Navbar() {
         </div>
 
         {/* Right side */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <Link
             href="/cart"
-            className="relative p-2.5 rounded-xl transition-all duration-300 hover:bg-green-50 group"
+            className="relative p-2 rounded-full transition-colors hover:bg-gray-100 group flex items-center"
           >
-            <ShoppingCart size={20} className="text-gray-600 group-hover:text-green-600 transition-colors" />
+            <ShoppingCart size={20} className="text-gray-700 group-hover:text-[#25D366] transition-colors" />
             {itemCount > 0 && (
-              <span className="absolute -top-1 -right-1 w-5 h-5 text-xs font-bold rounded-full flex items-center justify-center text-gray-900"
-                style={{ background: 'linear-gradient(135deg, #7c3aed, #06b6d4)' }}>
+              <span className="absolute 0 right-0 w-4 h-4 text-[10px] font-bold rounded-full flex items-center justify-center text-white bg-[#25D366] ring-2 ring-white transform translate-x-1 -translate-y-1">
                 {itemCount > 9 ? '9+' : itemCount}
               </span>
             )}
@@ -74,7 +73,7 @@ export default function Navbar() {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-white/5 transition-all"
+            className="md:hidden p-2 rounded-full text-gray-700 hover:bg-gray-100 transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -84,17 +83,17 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white shadow-sm border border-gray-100 border-t border-gray-200">
-          <div className="px-4 py-4 space-y-1">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-b border-gray-200 animate-in slide-in-from-top-2">
+          <div className="px-4 py-2 space-y-1">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className={`block px-4 py-3 rounded-xl text-sm font-medium transition-all ${
+                className={`block px-4 py-3 rounded-lg text-sm font-bold transition-all ${
                   pathname === link.href
-                    ? 'text-green-600 bg-green-50'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-white/5'
+                    ? 'text-[#25D366] bg-green-50'
+                    : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'
                 }`}
               >
                 {link.label}

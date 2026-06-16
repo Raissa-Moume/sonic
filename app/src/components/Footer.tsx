@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BookOpen, Github, MessageCircle, Mail, MapPin } from 'lucide-react';
+import { BookOpen, MessageCircle, Mail, MapPin } from 'lucide-react';
 
 export default function Footer() {
   return (

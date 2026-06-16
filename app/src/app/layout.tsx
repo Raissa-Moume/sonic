@@ -1,16 +1,7 @@
 import type { Metadata } from 'next';
-import { Outfit } from 'next/font/google';
 import './globals.css';
 import { CartProvider } from '@/context/CartContext';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-
-const outfit = Outfit({
-  subsets: ['latin'],
-  variable: '--font-outfit',
-  display: 'swap',
-});
-
+import LayoutWrapper from '@/components/LayoutWrapper';
 export const metadata: Metadata = {
   title: 'Sonic Books — Votre Librairie Numérique',
   description:
@@ -25,12 +16,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={outfit.variable}>
-      <body className="bg-[#080b14] text-gray-900 antialiased">
+    <html lang="fr">
+      <body className="bg-[#080b14] text-gray-100 antialiased">
         <CartProvider>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
+          <LayoutWrapper>
+            <main>{children}</main>
+          </LayoutWrapper>
         </CartProvider>
       </body>
     </html>

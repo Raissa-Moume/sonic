@@ -10,7 +10,7 @@ export async function GET(req: NextRequest) {
 
     const [booksResult, ordersResult] = await Promise.all([
       supabaseAdmin.from('books').select('*', { count: 'exact' }),
-      supabaseAdmin.from('orders').select('*'),
+      supabaseAdmin.from('orders').select('*').order('created_at', { ascending: false }),
     ]);
 
     const books = booksResult.data || [];
